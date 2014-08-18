@@ -31,6 +31,24 @@ def factorize(n):
     return primeFactors
 
 
+def divisors(n):
+    """
+    Return a list with all divisors of n.
+    """
+    factors = factorize(n)
+    divs = [1]
+
+    for factor, multiplicity in factors.items():
+        moreDivs = []
+        for i in range(1, multiplicity + 1):
+            n = factor ** i
+            for d in divs:
+                moreDivs.append(n * d)
+        divs.extend(moreDivs)
+
+    return divs
+
+
 def primes():
     """
     Generate an infinite sequence of prime numbers.
@@ -46,7 +64,7 @@ def primes():
             for p in composites[n]:
                 composites.setdefault(n + p, []).append(p)
 
-            del(composites[n])
+            del (composites[n])
 
         n += 1
 

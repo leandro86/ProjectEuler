@@ -27,5 +27,11 @@ class MiscTests(unittest.TestCase):
                           43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,
                           101, 103, 107, 109, 113], list(primes))
 
+    def testDivisors(self):
+        divisors = misc.divisors(220)
+
+        self.assertEqual([1, 2, 4, 11, 22, 44, 5, 10, 20, 55, 110, 220], divisors)
+
+
 if __name__ == '__main__':
     unittest.main()
