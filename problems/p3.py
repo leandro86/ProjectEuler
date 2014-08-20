@@ -1,6 +1,5 @@
 import time
-
-from helpers import  misc
+from helpers import misc
 
 
 def solve():

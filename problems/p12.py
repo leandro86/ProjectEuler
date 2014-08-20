@@ -15,10 +15,8 @@ def countDivisors(n):
     if len(primeFactors) > 0:
         # Given the prime factorization of a number n, for
         # instance: p^a q^b r^c, the number of divisors can be
-        # computed as: (a+1)(b+1)(c+1). Given than 'primeFactors'
-        # is a dictionary where: key --> prime factor, value --> multiplicity, it's
-        # very easy to compute the number of divisors.
-        return functools.reduce(operator.mul, map(lambda x: x + 1, primeFactors.values()))
+        # computed as: (a+1)(b+1)(c+1).
+        return functools.reduce(operator.mul, map(lambda x: x + 1, (m[1] for m in primeFactors)))
 
     return 0
 

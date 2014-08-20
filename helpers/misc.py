@@ -16,17 +16,33 @@ def factorize(n):
     """
     Factorize 'n' and return its prime factors.
 
-    Return a dictionary where: key --> prime factor, value --> multiplicity.
+    Return a list of tuples (a,b) where: a -> factor, b -> multiplicity.
     """
-    primeFactors = defaultdict(int)
-    divisor = 2
+    primeFactors = []
 
-    while n > 1:
-        if n % divisor == 0:
-            primeFactors[divisor] += 1
+    i = 0
+    while n % 2 == 0:
+        i += 1
+        n //= 2
+
+    if i != 0:
+        primeFactors.append((2, i))
+
+    divisor = 3
+    while divisor * divisor <= n:
+        i = 0
+
+        while n % divisor == 0:
+            i += 1
             n //= divisor
-        else:
-            divisor += 1
+
+        if i != 0:
+            primeFactors.append((divisor, i))
+
+        divisor += 2
+
+    if n > 1:
+        primeFactors.append((n, 1))
 
     return primeFactors
 
@@ -38,7 +54,7 @@ def divisors(n):
     factors = factorize(n)
     divs = [1]
 
-    for factor, multiplicity in factors.items():
+    for factor, multiplicity in factors:
         moreDivs = []
         for i in range(1, multiplicity + 1):
             n = factor ** i

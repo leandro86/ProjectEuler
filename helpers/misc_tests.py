@@ -13,12 +13,12 @@ class MiscTests(unittest.TestCase):
     def testFactorize(self):
         primeFactors = misc.factorize(16)
 
-        self.assertEqual({2: 4}, primeFactors)
+        self.assertEqual([(2, 4)], primeFactors)
 
     def testFactorize2(self):
         primeFactors = misc.factorize(13195)
 
-        self.assertEqual({5: 1, 7: 1, 13: 1, 29: 1}, primeFactors)
+        self.assertEqual([(5, 1), (7, 1), (13, 1), (29, 1)], primeFactors)
 
     def testPrimes(self):
         primes = itertools.islice(misc.primes(), 30)
@@ -30,7 +30,7 @@ class MiscTests(unittest.TestCase):
     def testDivisors(self):
         divisors = misc.divisors(220)
 
-        self.assertEqual([1, 2, 4, 11, 22, 44, 5, 10, 20, 55, 110, 220], divisors)
+        self.assertEqual([1, 2, 4, 5, 10, 20, 11, 22, 44, 55, 110, 220], divisors)
 
 
 if __name__ == '__main__':

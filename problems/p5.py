@@ -38,7 +38,7 @@ def solve2():
     # is in the dict, I just add the prime factor as many times as the difference
     for factor in range(2, maxFactor + 1):
         primeFactors = misc.factorize(factor)
-        for primeFactor, multiplicity in primeFactors.items():
+        for primeFactor, multiplicity in primeFactors:
             n = multiplicity - factors[primeFactor]
             if n > 0:
                 factors[primeFactor] += n
