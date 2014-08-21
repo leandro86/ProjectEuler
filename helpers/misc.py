@@ -1,6 +1,3 @@
-from collections import defaultdict
-
-
 def fib():
     """
     Generate an infinite sequence of fibonacci numbers.
